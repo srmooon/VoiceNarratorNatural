@@ -182,7 +182,15 @@ export default definePlugin({
                     speak(formatText(settings.store[type + "Message"], {
                         username, displayName, nickname, channel: channelName, server: serverName
                     }));
-                    if (type === "leave") userStates.delete(userId);
+                    if (type === "leave") {
+                        userStates.delete(userId);
+                    } else if (type === "join") {
+                        // Initialize state when user joins so we can detect their first mute/deafen
+                        userStates.set(userId, {
+                            mute: state.mute || state.selfMute,
+                            deaf: state.deaf || state.selfDeaf
+                        });
+                    }
                     continue;
                 }
 
@@ -193,13 +201,15 @@ export default definePlugin({
                     const channelName = ChannelStore.getChannel(myChanId)?.name || "channel";
 
                     if (prevState) {
-                        if (prevState.mute !== currentMute) {
-                            const msgType = currentMute ? "mute" : "unmute";
+                        // Check deafen FIRST - when you deafen, Discord also mutes you
+                        // so we need to prioritize deafen detection
+                        if (prevState.deaf !== currentDeaf) {
+                            const msgType = currentDeaf ? "deafen" : "undeafen";
                             speak(formatText(settings.store[msgType + "Message"], {
                                 username, displayName, nickname, channel: channelName, server: serverName
                             }));
-                        } else if (prevState.deaf !== currentDeaf) {
-                            const msgType = currentDeaf ? "deafen" : "undeafen";
+                        } else if (prevState.mute !== currentMute) {
+                            const msgType = currentMute ? "mute" : "unmute";
                             speak(formatText(settings.store[msgType + "Message"], {
                                 username, displayName, nickname, channel: channelName, server: serverName
                             }));
