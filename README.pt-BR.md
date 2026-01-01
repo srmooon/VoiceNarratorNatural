@@ -32,11 +32,20 @@ Um plugin de TTS (Text-to-Speech) para [Vencord](https://vencord.dev/) / [Equico
 
 Para usar as Vozes Naturais do Windows (como Microsoft Antonio, Francisca, etc.), você precisa instalar o [NaturalVoiceSAPIAdapter](https://github.com/gexgd0419/NaturalVoiceSAPIAdapter).
 
-1. Baixe e instale o NaturalVoiceSAPIAdapter pelo link acima
-2. Selecione as vozes que deseja usar
-3. Nas configurações do plugin, selecione "SAPI5" como Provedor de TTS
-4. Clique em "Install SAPI5" para baixar os componentes Python necessários (~20MB)
-5. Selecione sua voz preferida no dropdown
+### ⚠️ Requisitos Importantes
+
+- **Você DEVE instalar AMBAS as versões 32-bit (x86) e 64-bit (x64)** do NaturalVoiceSAPIAdapter para o plugin funcionar corretamente
+- **Recomendado**: Instale as vozes no modo "Local" para melhor desempenho e confiabilidade (vozes online podem ter problemas de latência)
+
+### Passos de Instalação
+
+1. Baixe o NaturalVoiceSAPIAdapter pelo link acima
+2. **Instale ambas as versões x86 e x64** (isso é obrigatório!)
+3. Abra o NaturalVoiceSAPIAdapter e selecione as vozes que deseja usar
+4. **Recomendado**: Escolha o modo de instalação "Local" para cada voz
+5. Nas configurações do plugin, selecione "SAPI5" como Provedor de TTS
+6. Clique em "Install SAPI5" para baixar os componentes Python necessários (~20MB)
+7. Selecione sua voz preferida no dropdown
 
 ## Variáveis das Mensagens
 
