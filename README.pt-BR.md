@@ -34,13 +34,13 @@ Para usar as Vozes Naturais do Windows (como Microsoft Antonio, Francisca, etc.)
 
 ### ⚠️ Requisitos Importantes
 
-- **Você DEVE instalar AMBAS as versões 32-bit (x86) e 64-bit (x64)** do NaturalVoiceSAPIAdapter para o plugin funcionar corretamente
+- **Você DEVE clicar em AMBOS os botões "Install 32-bit" E "Install 64-bit"** dentro do instalador do NaturalVoiceSAPIAdapter para o plugin funcionar corretamente
 - **Recomendado**: Instale as vozes no modo "Local" para melhor desempenho e confiabilidade (vozes online podem ter problemas de latência)
 
 ### Passos de Instalação
 
 1. Baixe o NaturalVoiceSAPIAdapter pelo link acima
-2. **Instale ambas as versões x86 e x64** (isso é obrigatório!)
+2. Abra o instalador e **clique em ambos os botões "Install 32-bit" e "Install 64-bit"** (isso é obrigatório!)
 3. Abra o NaturalVoiceSAPIAdapter e selecione as vozes que deseja usar
 4. **Recomendado**: Escolha o modo de instalação "Local" para cada voz
 5. Nas configurações do plugin, selecione "SAPI5" como Provedor de TTS
