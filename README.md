@@ -41,11 +41,14 @@ To use Windows Natural Voices (like Microsoft Antonio, Francisca, etc.), you nee
 
 1. Download NaturalVoiceSAPIAdapter from the link above
 2. Open the installer and **click both "Install 32-bit" and "Install 64-bit" buttons** (this is required!)
-3. Open NaturalVoiceSAPIAdapter and select the voices you want to use
-4. **Recommended**: Choose "Local" installation mode for each voice
-5. In the plugin settings, select "SAPI5" as the TTS Provider
-6. Click "Install SAPI5" to download the required Python components (~20MB)
-7. Select your preferred voice from the dropdown
+3. Install voices locally (recommended):
+   - Download voice MSIX files from the [Narrator Natural Voice Download Links](https://github.com/gexgd0419/NaturalVoiceSAPIAdapter/wiki/Narrator-natural-voice-download-links)
+   - Create a folder for voices (path must contain only ASCII characters, e.g., `C:\Voices`)
+   - Extract each MSIX file (like a ZIP) to a subfolder inside that folder
+   - In NaturalVoiceSAPIAdapter installer, set the parent folder as "Local voice path"
+4. In the plugin settings, select "SAPI5" as the TTS Provider
+5. Click "Install SAPI5" to download the required Python components (~20MB)
+6. Select your preferred voice from the dropdown
 
 ## Message Variables
 
