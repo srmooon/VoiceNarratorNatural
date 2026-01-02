@@ -1,8 +1,4 @@
-/*
- * VoiceNarratorNatural - TTS plugin with Windows Natural Voices support
- * Copyright (c) 2026 SrMoon (https://github.com/srmooon)
- * SPDX-License-Identifier: GPL-3.0-or-later
- */
+
 
 import { Heading } from "@components/Heading";
 import { Paragraph } from "@components/Paragraph";

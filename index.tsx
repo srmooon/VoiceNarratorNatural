@@ -1,8 +1,4 @@
-/*
- * VoiceNarratorNatural - TTS plugin with Windows Natural Voices support
- * Copyright (c) 2026 SrMoon (https://github.com/srmooon)
- * SPDX-License-Identifier: GPL-3.0-or-later
- */
+
 
 import { NavContextMenuPatchCallback } from "@api/ContextMenu";
 import definePlugin, { PluginNative, ReporterTestable } from "@utils/types";
@@ -175,7 +171,7 @@ export default definePlugin({
                 const { userId, channelId, oldChannelId } = state;
                 const isMe = userId === myId;
                 
-                // Handle my own leave (when I disconnect)
+                
                 if (isMe && !channelId && oldChannelId) {
                     const oldChannel = ChannelStore.getChannel(oldChannelId);
                     if (oldChannel && oldChannel.type !== 13) {
@@ -201,7 +197,7 @@ export default definePlugin({
                 const voiceChannel = ChannelStore.getChannel(myChanId);
                 if (!voiceChannel || voiceChannel.type === 13) continue;
 
-                // Get the guild from the voice channel, not from selected guild
+                
                 const myGuildId = voiceChannel.guild_id;
                 const serverName = GuildStore.getGuild(myGuildId)?.name || "server";
 
@@ -224,7 +220,7 @@ export default definePlugin({
                     if (type === "leave") {
                         userStates.delete(userId);
                     } else if (type === "join") {
-                        // Initialize state when user joins so we can detect their first mute/deafen
+                        
                         userStates.set(userId, {
                             mute: state.mute || state.selfMute,
                             deaf: state.deaf || state.selfDeaf
@@ -240,7 +236,7 @@ export default definePlugin({
                     const channelName = ChannelStore.getChannel(myChanId)?.name || "channel";
 
                     if (prevState) {
-                        // Check if state actually changed
+                        
                         const deafChanged = prevState.deaf !== currentDeaf;
                         const muteChanged = prevState.mute !== currentMute;
                         
@@ -248,11 +244,11 @@ export default definePlugin({
                             let spamData = userSpamCount.get(userId);
                             
                             if (!spamData) {
-                                // First change - speak immediately and start tracking
+                                
                                 spamData = { count: 1, firstState: { ...prevState }, timeout: null };
                                 userSpamCount.set(userId, spamData);
                                 
-                                // Speak immediately for first change
+                                
                                 if (deafChanged) {
                                     const msgType = currentDeaf ? "deafen" : "undeafen";
                                     speak(formatText(settings.store[msgType + "Message"], {
@@ -265,19 +261,19 @@ export default definePlugin({
                                     }));
                                 }
                                 
-                                // Set timeout to reset spam counter
+                                
                                 spamData.timeout = setTimeout(() => {
                                     userSpamCount.delete(userId);
                                 }, SPAM_WINDOW_MS);
                             } else {
-                                // Subsequent change within window
+                                
                                 spamData.count++;
                                 
-                                // Clear old timeout and set new one
+                                
                                 if (spamData.timeout) clearTimeout(spamData.timeout);
                                 
                                 if (spamData.count >= SPAM_THRESHOLD) {
-                                    // It's spam - wait for them to stop, then announce final state
+                                    
                                     spamData.timeout = setTimeout(() => {
                                         const finalState = userStates.get(userId);
                                         const firstState = spamData!.firstState;
@@ -286,7 +282,7 @@ export default definePlugin({
                                             return;
                                         }
                                         
-                                        // Only announce if final state is different from first state
+                                        
                                         if (firstState.deaf !== finalState.deaf) {
                                             const msgType = finalState.deaf ? "deafen" : "undeafen";
                                             speak(formatText(settings.store[msgType + "Message"], {
@@ -302,7 +298,7 @@ export default definePlugin({
                                         userSpamCount.delete(userId);
                                     }, SPAM_WINDOW_MS);
                                 } else {
-                                    // Not spam yet - speak and reset timeout
+                                    
                                     if (deafChanged) {
                                         const msgType = currentDeaf ? "deafen" : "undeafen";
                                         speak(formatText(settings.store[msgType + "Message"], {
@@ -359,7 +355,7 @@ export default definePlugin({
     stop() {
         stopSpeaking();
         userStates.clear();
-        // Clear all spam tracking
+        
         for (const data of userSpamCount.values()) {
             if (data.timeout) clearTimeout(data.timeout);
         }

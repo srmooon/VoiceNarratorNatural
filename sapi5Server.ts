@@ -1,8 +1,4 @@
-/*
- * Vencord, a Discord client mod
- * Copyright (c) 2025 Vendicated and contributors
- * SPDX-License-Identifier: GPL-3.0-or-later
- */
+
 
 import { Logger } from "@utils/Logger";
 
@@ -90,7 +86,7 @@ export async function stopSAPI5(): Promise<void> {
     try {
         await fetch(`${TTS_URL}/stop`);
     } catch {
-        // Ignora erros ao parar
+        
     }
 }
 
@@ -99,7 +95,7 @@ export async function shutdownServer(): Promise<void> {
         await fetch(`${TTS_URL}/shutdown`);
         serverReady = false;
     } catch {
-        // Servidor pode já ter fechado
+        
     }
 }
 
