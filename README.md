@@ -12,17 +12,6 @@ A TTS (Text-to-Speech) plugin for [Vencord](https://vencord.dev/) / [Equicord](h
 
 ## Installation
 
-### Easy Way (Recommended) - Using MoonPlugs
-
-Use [MoonPlugs](https://github.com/srmooon/MoonPlugs) to install this plugin automatically:
-
-1. Download MoonPlugs from [Releases](https://github.com/srmooon/MoonPlugs/releases)
-2. Run MoonPlugs and install Vencord or Equicord DevBuild
-3. Go to "Plugins" tab and click "Install" on VoiceNarratorNatural
-4. Done! The plugin will be automatically installed and built
-
-### Manual Installation
-
 1. Clone this repository into your Vencord/Equicord userplugins folder:
    ```bash
    cd src/userplugins
@@ -36,6 +25,8 @@ Use [MoonPlugs](https://github.com/srmooon/MoonPlugs) to install this plugin aut
    ```
 
 3. Restart Discord and enable the plugin in settings.
+
+> 💡 **Tip**: You can also use [MoonPlugs](https://github.com/srmooon/MoonPlugs) to install this plugin automatically with just one click!
 
 ## SAPI5 Natural Voices Setup
 
