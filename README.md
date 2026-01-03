@@ -12,7 +12,16 @@ A TTS (Text-to-Speech) plugin for [Vencord](https://vencord.dev/) / [Equicord](h
 
 ## Installation
 
-### As a Userplugin
+### Easy Way (Recommended) - Using MoonPlugs
+
+Use [MoonPlugs](https://github.com/srmooon/MoonPlugs) to install this plugin automatically:
+
+1. Download MoonPlugs from [Releases](https://github.com/srmooon/MoonPlugs/releases)
+2. Run MoonPlugs and install Vencord or Equicord DevBuild
+3. Go to "Plugins" tab and click "Install" on VoiceNarratorNatural
+4. Done! The plugin will be automatically installed and built
+
+### Manual Installation
 
 1. Clone this repository into your Vencord/Equicord userplugins folder:
    ```bash
@@ -82,6 +91,12 @@ You can customize the announcement messages using these variables:
 - **Speed** - Adjust the speech rate
 - **Announce yourself** - Toggle whether to announce your own actions
 - **Strip non-latin characters** - Remove special characters from names
+
+## ⭐ Support
+
+If you find this plugin useful, please consider giving it a star! It helps a lot! ⭐
+
+Also check out [MoonPlugs](https://github.com/srmooon/MoonPlugs) - the easiest way to install Vencord/Equicord plugins!
 
 ## Author
 
