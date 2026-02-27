@@ -43,7 +43,7 @@ function SimplePicker({ voice, voices }: { voice: string | undefined; voices: Sp
             placeholder="Select a voice"
             maxVisibleItems={5}
             options={options}
-            value={options.find(o => o.value === voice)}
+            value={options.find(o => o.value === voice)?.value}
             onChange={v => settings.store.voice = v}
             closeOnSelect
         />
@@ -79,7 +79,7 @@ function ComplexPicker({ voice, voices }: { voice: string | undefined; voices: S
             <SearchableSelect
                 placeholder="Select language"
                 options={languageOptions}
-                value={languageOptions.find(l => l.value === selectedLanguage)}
+                value={languageOptions.find(l => l.value === selectedLanguage)?.value}
                 onChange={v => setSelectedLanguage(v)}
                 maxVisibleItems={5}
                 closeOnSelect
@@ -152,7 +152,7 @@ export function TTSProviderSection() {
                 placeholder="Select TTS Provider"
                 maxVisibleItems={5}
                 options={options}
-                value={options.find(o => o.value === ttsProvider)}
+                value={options.find(o => o.value === ttsProvider)?.value}
                 onChange={handleChange}
                 closeOnSelect
             />
@@ -309,7 +309,7 @@ export function SAPI5Section() {
                         placeholder="Select SAPI5 voice"
                         maxVisibleItems={5}
                         options={voiceOptions}
-                        value={voiceOptions.find(o => o.value === sapi5Voice)}
+                        value={voiceOptions.find(o => o.value === sapi5Voice)?.value}
                         onChange={v => settings.store.sapi5Voice = v}
                         closeOnSelect
                     />
